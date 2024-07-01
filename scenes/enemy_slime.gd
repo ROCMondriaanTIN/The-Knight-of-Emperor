@@ -1,9 +1,12 @@
 extends Node2D
 
+# Getting the speed varibale valued
 const SPEED = 60
 
+# Variable of the name root "Direction" is 1
 var direction = 1
 
+# Directionary inputs 
 @onready var  ray_cast_right = $RayCastRight
 @onready var  ray_cast_left = $RayCastLeft
 @onready var animated_sprite = $AnimatedSprite2D

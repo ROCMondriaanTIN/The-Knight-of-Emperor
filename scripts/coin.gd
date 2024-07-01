@@ -1,5 +1,6 @@
 extends Area2D
 
+# Defining the Game Manager and Animation Player
 @onready var game_manager = %"Game Manager"
 @onready var animation_player = $AnimationPlayer
 

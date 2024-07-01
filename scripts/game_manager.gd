@@ -1,5 +1,6 @@
 extends Node
 
+# variable of score
 var score = 0
 @onready var score_label = $"Score Label"
 

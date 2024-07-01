@@ -1,7 +1,9 @@
 extends Area2D
 
+# variable giving timer value
 @onready var timer = $Timer
 
+# Indication of collision root
 func _on_body_entered(body):
 	print ("You died")
 	Engine.time_scale = 0.5
