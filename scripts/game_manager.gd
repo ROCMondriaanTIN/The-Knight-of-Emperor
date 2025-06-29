@@ -8,6 +8,8 @@ var score = 0
 func add_point():
 	score += 1
 	score_label.text = "You Collected " + str(score) + " coins."
+	if score == 16:
+		get_tree().change_scene_to_file("res://scenes/bonus_level.tscn")
 	
 	
 	
