@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blgrd58a5r7m4"]
+[gd_scene load_steps=13 format=3 uid="uid://blgrd58a5r7m4"]
 
 [ext_resource type="PackedScene" uid="uid://c278hf6v55bgm" path="res://scenes/player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://gy284n82wgea" path="res://scenes/platform.tscn" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://w51es0uomg8a" path="res://assets/sprites/world_tileset.png" id="6"]
 [ext_resource type="Script" uid="uid://dl0tqteu07hwp" path="res://scripts/game_manager.gd" id="7"]
 [ext_resource type="FontFile" uid="uid://675chcdnkh4e" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8"]
+[ext_resource type="Script" uid="uid://dhsn3n6uej236" path="res://scripts/bonus_level_manager.gd" id="9"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l3k0"]
 texture = ExtResource("6")
@@ -17,6 +18,9 @@ texture = ExtResource("6")
 [sub_resource type="TileSet" id="TileSet_ufhi1"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1l3k0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flag"]
+size = Vector2(16, 32)
 
 [node name="BonusLevel" type="Node2D"]
 
@@ -72,6 +76,34 @@ position = Vector2(525, 216)
 [node name="killzone" parent="." instance=ExtResource("5")]
 position = Vector2(47, 147)
 
+[node name="FinishFlag" type="Area2D" parent="."]
+visible = false
+position = Vector2(600, 140)
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="FinishFlag"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("6")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishFlag"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_flag")
+
+[node name="Label" type="Label" parent="FinishFlag"]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("8")
+theme_override_font_sizes/font_size = 8
+text = "FINISH!"
+horizontal_alignment = 1
+
 [node name="Text labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Text labels"]
@@ -115,3 +147,6 @@ theme_override_colors/font_color = Color(0.0443066, 0.0270816, 0.616732, 0.89411
 theme_override_fonts/font = ExtResource("8")
 theme_override_font_sizes/font_size = 12
 text = "Bonus Coins: 0"
+
+[node name="BonusLevelManager" type="Node" parent="."]
+script = ExtResource("9")
