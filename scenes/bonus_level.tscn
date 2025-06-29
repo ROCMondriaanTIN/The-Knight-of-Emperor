@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id=1]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id=2]
+[ext_resource type="PackedScene" path="res://scenes/coin.tscn" id=3]
+[ext_resource type="PackedScene" path="res://scenes/enemy_slime.tscn" id=4]
+
+[node name="BonusLevel" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2(50, 100)
+
+[node name="platform" parent="." instance=ExtResource( 2 )]
+position = Vector2(0, 200)
+
+[node name="platform2" parent="." instance=ExtResource( 2 )]
+position = Vector2(200, 150)
+
+[node name="coin" parent="." instance=ExtResource( 3 )]
+position = Vector2(220, 120)
+
+[node name="coin2" parent="." instance=ExtResource( 3 )]
+position = Vector2(60, 70)
+
+[node name="enemy_slime" parent="." instance=ExtResource( 4 )]
+position = Vector2(150, 180) 
